@@ -145,6 +145,11 @@ The \`search\` command helps you discover servers in the MCP Marketplace and on 
 
 **GitHub Command Options:**
 --from-github=<GitHub username>/<repository name>[@<branch>]: Access PRs/issues from a specific GitHub repository
+--review-only: Show only code review comments section (PRs only)
+--discussion-only: Show only discussion comments section
+--metadata-only: Show only PR/issue metadata (labels, assignees, etc.)
+--no-links: Hide all "View in GitHub" links from output
+--hide-resolved: Filter out resolved code review comments (PRs only)
 
 **Browser Command Options (for 'open', 'act', 'observe', 'extract'):**
 --console: Capture browser console logs (enabled by default, use --no-console to disable)
@@ -194,6 +199,8 @@ If people say "ask Gemini" or "ask Perplexity" or "ask Stagehand" they mean to u
 - **Repomix Configuration:** You can customize which files are included/excluded during repository analysis by creating a \`repomix.config.json\` file in your project root. This file will be automatically detected by \`repo\`, \`plan\`, and \`doc\` commands.
 
 **Authentication and API Keys**: vibe-tools automatically loads API keys from ~/.vibe-tools/.env files, environment variables, and Doppler secrets when running in a folder that has a doppler project configured. Disable Doppler loading by adding \`"disableDoppler": true\` to \`vibe-tools.config.json\`. 
+
+**Environment Variable Precedence**: You can prefix any environment variable with \`VIBE_TOOLS_\` to ensure it takes precedence over other sources (e.g., \`VIBE_TOOLS_OPENAI_API_KEY\` overrides \`OPENAI_API_KEY\`). This is useful for CI/CD environments or when you want to use different API keys specifically for vibe-tools. 
 
 <!-- vibe-tools-version: ${VIBE_TOOLS_RULES_VERSION} -->`;
 
